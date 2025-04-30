@@ -2,35 +2,38 @@ package com.wms.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 @TableName("user")
 public class User {
-    @TableField("id")
-    private int id;
+    @JsonProperty("id")
+    private Integer id;
 
-    @TableField("no")
+    @JsonProperty("no")
     private String no;
 
-    @TableField("name")
+    @JsonProperty("name")
     private String name;
 
-    @TableField("password")
+    @JsonProperty("password")
     private String password;
 
-    @TableField("age")
-    private int age;
+    @JsonProperty("age")
+    private Integer age;
 
-    @TableField("sex")
-    private int sex;
+    @JsonProperty("sex")
+    private Integer sex;
 
-    @TableField("phone")
+    @JsonProperty("phone")
     private String phone;
 
     @TableField("role_id")
-    private int roleId;
+    @JsonProperty("role_id")
+    private Integer roleId;
 
     @TableField("is_valid")
+    @JsonProperty("is_valid")
     private String isValid;
 }

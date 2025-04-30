@@ -17,14 +17,16 @@ public class HelloController {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("/list")
-//    public List<User> list() {
-//        return userService.list();
-//    }
     @GetMapping("/list")
-    public  List<User> list() {
-        List<User> users = userService.list();
-        System.out.println("result: " + users);
-        return users;
+    public List<User> list() {
+//        return userService.list();
+        return userService.listAll();
     }
+
+//    @GetMapping("/list")
+//    public  List<User> list() {
+//        List<User> users = userService.list();
+//        System.out.println("result: " + users);
+//        return users;
+//    }
 }
