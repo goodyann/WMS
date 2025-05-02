@@ -42,7 +42,7 @@ public class CodeGenerator {
         AutoGenerator mpg = new AutoGenerator();
         // Global configuration
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir")+"/wms";
+        String projectPath = System.getProperty("user.dir")+"/WMS/wms";
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("wms");
         gc.setOpen(false);

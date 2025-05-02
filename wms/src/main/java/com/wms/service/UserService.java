@@ -1,10 +1,16 @@
 package com.wms.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.wms.entity.User;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-import java.util.List;
-
+/**
+ * <p>
+ *  Service
+ * </p>
+ *
+ * @author wms
+ * @since 2025-05-01
+ */
 public interface UserService extends IService<User> {
-    List<User> listAll();
+
 }
