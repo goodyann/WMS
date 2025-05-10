@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.HashBiMap;
 import com.wms.common.QueryPageParam;
+import com.wms.common.Result;
 import com.wms.entity.User;
 import com.wms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,5 +126,31 @@ public class UserController {
         System.out.println(result.getTotal());
         return result.getRecords();
     }
+
+    @PostMapping(value = "/listPageCCC", produces = "application/json;charset=UTF-8")
+//    public List<User> ListPage(@RequestBody HashMap map) {
+    public Result ListPageCC(@RequestBody QueryPageParam query) {
+        System.out.println(query);
+        System.out.println("num===" + query.getPageNum());
+
+        HashMap param = query.getParam();
+        String name = (String) param.get("name");
+
+        Page<User> page =  new Page<>();
+        page.setCurrent(query.getPageNum());
+        page.setPages(query.getPageSize());
+        LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.like(User::getName, name);
+
+        IPage<User> result = userService.pageCC(page, lambdaQueryWrapper);
+        System.out.println(result.getTotal());
+        return Result.suc(result.getTotal(), result.getRecords());
+//        return Result.suc();
+    }
+
+//    @GetMapping("/test")
+//    public Result test() {
+//        return Result.suc("test data");
+//    }
 
 }
